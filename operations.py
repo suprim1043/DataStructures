@@ -20,4 +20,31 @@ def insertTail(head,key):
         current = current.next
     current.next = Node(key)
     return head
-printing(insertTail(head, 20))
+
+
+
+
+#Delete first node of linked list
+
+def deleteFirst(head):
+    if head == None:
+        return None
+    else:
+        return head.next
+
+
+#Delete last node of linked list
+
+def deleteLast(head):
+    if head == None:
+        return None
+    
+    current,prev = head, None
+   
+    while current != None:
+        if current.next == None:
+            current.key = None
+            return head
+        current = current.next
+    return head
+printing(deleteLast(head))
