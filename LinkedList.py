@@ -20,8 +20,7 @@ def printing(head):
     while current !=None:
         print(current.key, end= " -> ")
         current = current.next
-printing(head) #Caller
-print("")
+    print("")
 
 #Searching in Linked List
 
@@ -29,7 +28,6 @@ print("")
 #returns position of item if found, if not returns -1
 def search(head, n):
     current = head
-    
     pos = 0
     while current != None:
         if current.key == n:
@@ -40,4 +38,7 @@ def search(head, n):
             current = current.next
             pos += 1
 
-print(search(head, 1))
+
+
+
+
