@@ -9,8 +9,9 @@ def insertHead(head, key):
 head = None
 head = insertHead(head, 10)
 head = insertHead(head, 20)
+head = insertHead(head, 30)
 
-#inserting at the end 
+#inserting at the end  
 def insertTail(head,key):
     if head == None:
         return Node(key)
@@ -21,30 +22,33 @@ def insertTail(head,key):
     current.next = Node(key)
     return head
 
-
-
-
 #Delete first node of linked list
-
 def deleteFirst(head):
     if head == None:
         return None
     else:
         return head.next
-
-
+     
 #Delete last node of linked list
-
 def deleteLast(head):
     if head == None:
         return None
-    
     current,prev = head, None
-   
     while current != None:
         if current.next == None:
             current.key = None
             return head
         current = current.next
     return head
-printing(deleteLast(head))
+
+
+#Delete a node with a pointer given to it
+
+def deletePointed(nodePnt):
+    current = nodePnt.next
+    nodePnt.key = current.key
+    nodePnt.next = current.next
+
+
+deletePointed(head)
+printing(head)
