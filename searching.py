@@ -18,3 +18,26 @@ def binarySearch(array,target):
     return -1 
 #it divides array everytime loop is run. Time complexity of O(log n)
 
+
+#Linear Search
+
+def linearSearch(array, target):
+    for i in range(len(array)):
+        if target == array[i]:
+            return (i)
+    return -1
+
+
+#Linear Search alternate method
+
+def linearSearchWhile(array, target):
+    i = 0
+    while i < len(array):
+        if target == array[i]:
+            return (i)
+        i += 1
+    return -1
+
+print(linearSearchWhile(array, 3))
+    
+        
