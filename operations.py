@@ -1,4 +1,4 @@
-from LinkedList import Node,printing
+from linkedList import Node,printing
 
 #inserting a the beginning
 def insertHead(head, key):
@@ -51,4 +51,21 @@ def deletePointed(nodePnt):
 
 
 deletePointed(head)
-printing(head)
+
+
+
+
+
+#Duplicate Integer return true if integer is more than 1
+
+nums = [1,2,3,4,4]
+
+def duplicate(nums):
+    i = 0
+    while i < len(nums) :
+        if nums[i] == nums[i+1]:
+            return True
+        i += 1
+
+
+print(duplicate(nums))
