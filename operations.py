@@ -55,6 +55,8 @@ deletePointed(head)
 
 
 
+#NEETCODE HARD 75
+
 
 #Duplicate Integer return true if integer is more than 1
 
@@ -62,10 +64,28 @@ nums = [1,2,3,4,4]
 
 def duplicate(nums):
     i = 0
-    while i < len(nums) :
+    a = 0
+    nums.sort()
+    while i < len(nums) and i+1 < len(nums):
         if nums[i] == nums[i+1]:
-            return True
+            a += 1
         i += 1
+    if a > 0: 
+        return True
+    else: 
+        return False
 
 
-print(duplicate(nums))
+#IS anagram
+
+s = 'carrace'
+t = 'racecar'
+
+def isAnagram(s,t):
+        alpha = ''.join(sorted(s))
+        beta = ''.join(sorted(t))
+        if alpha == beta:
+            return True
+        else:
+            return False
+    
