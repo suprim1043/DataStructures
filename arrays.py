@@ -42,3 +42,19 @@ def alternate(array):
             i = i + 1
     return True
 
+#Hash Map/Sets
+
+hashArray = ["alice", "sedhai", "suprim", "suprim"]
+
+
+def hashMap(hashArray):
+    dict = {}
+    for name in hashArray:
+        if name not in dict:
+             dict[name] = 1
+        else:
+             dict[name] += 1
+
+    return dict
+
+print((hashMap(hashArray))["suprim"])
