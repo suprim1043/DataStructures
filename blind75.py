@@ -63,3 +63,44 @@ def threeSum(nums):
     return [list(i) for i in result]
 
 print(threeSum(nums))
+
+
+#Anagram
+
+def is_Anagram(s,t):
+        '''
+        This is simple but has time complexity of O(nlogn)
+        if s == t:
+            return True
+        else:
+            return False
+        s = sorted(s)
+        s = ''.join(s)
+        t = ''.join(sorted(t))
+        '''
+
+
+        #use of hashmap, counts how many items there are for each, time complexity of O(n)
+
+        hash1 = {}
+        hash2 = {}
+
+        if len(s) != len(t):
+            return False
+        
+        for i in range(len(s)):
+            
+            hash1[s[i]] = 1 + hash1.get(s[i],0)
+            hash2[t[i]] = 1 + hash2.get(t[i],0)
+
+        
+        return hash1 == hash2
+    
+
+    
+      
+      
+        
+   
+     
+            
