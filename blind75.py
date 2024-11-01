@@ -17,11 +17,14 @@ def twoSum(nums, target):
 def twoSumHash(numus, target):
     map = {}
 
-    for i,n in enumerate(nums):
+    for i in range(len(nums)):
+        n = nums[i]
         difference = target - n
         if difference in map:
             return [map[difference], i]
         map[n] = i
+
+print(twoSumHash(nums, target))
 
 #Group Anagrams
 '''
