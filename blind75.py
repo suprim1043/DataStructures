@@ -24,7 +24,6 @@ def twoSumHash(numus, target):
             return [map[difference], i]
         map[n] = i
 
-print(twoSumHash(nums, target))
 
 #Group Anagrams
 '''
@@ -65,7 +64,6 @@ def threeSum(nums):
                         
     return [list(i) for i in result]
 
-print(threeSum(nums))
 
 
 #Anagram
@@ -107,3 +105,64 @@ def is_Anagram(s,t):
    
      
             
+
+array = [1,2,2,2,3,5,5,5,5,5,5,5,5]
+k = 2
+
+def top_freq(array,k):
+    
+    hash1 = {}
+    result = []
+    final = []
+
+    for n in array:
+        if n in hash1:
+            hash1[n] = 1 + hash1.get(n,0) 
+        else:
+            hash1[n] = 1
+
+    for key,val in hash1.items():
+        result.append([val,key])
+
+    result.sort()
+
+    for n in result:
+        if k > 0:
+            fin = result.pop()[1]
+            final.append(fin)
+            k = k-1
+            
+    return final
+            
+
+
+
+
+#Encoding and Decoding
+encode_array = ["neet","code","love","you"]
+
+def encode(encode_array):
+    result = ""
+    for strs in encode_array:
+        result += str(len(strs)) + "#" + strs
+    return result
+
+def decode(s):
+    
+    result = []
+    i = 0
+
+    while i < len(s):
+        j = i
+        while s[j] != "#":
+            j += 1
+        
+        length = int(s[i:j])
+        string = s[j+1:j+1+length]
+        result.append(string)
+
+        i = j+1+length
+
+    return result
+
+print(decode(encode(encode_array)))
