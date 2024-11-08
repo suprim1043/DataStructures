@@ -165,4 +165,27 @@ def decode(s):
 
     return result
 
-print(decode(encode(encode_array)))
+
+prefix_array = [1,2,3,5,6]
+#Sum except itself
+
+# This is a brute force approach with O(n^2) time complexity
+
+# Can use prefix sum to solve it in O(n)
+
+def prefix_sum(nums):
+    length = len(nums)
+    result = [0] * length
+
+    for i in range(length):
+        product = 1
+        for j in range(length):
+            if i != j:
+                product = product * nums[j]
+            else: 
+                pass
+        result[i] = product
+    return result
+
+print(prefix_sum(prefix_array))
+    
