@@ -196,5 +196,19 @@ def prefix_prod(nums):
 
     return result
 
-print(prefix_prod(prefix_array))
-print(prefix_sum(prefix_array))
+def longest_common(nums):
+    counter = 0
+    result = set(nums)
+    longest = 0
+
+    for n in result:
+        if n-1 not in result:
+            counter = 1
+            while (n+counter) in result:
+                counter += 1
+            longest = max(counter, longest)
+    return longest
+
+print(longest_common(prefix_array))
+                
+
