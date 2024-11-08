@@ -5,7 +5,6 @@ from collections import defaultdict
 nums = [3,4,5,6]
 target = 7
 
-
 def twoSum(nums, target):
        for i in range(len(nums)):
             for j in range(1,len(nums)):
@@ -98,13 +97,6 @@ def is_Anagram(s,t):
         return hash1 == hash2
     
 
-    
-      
-      
-        
-   
-     
-            
 
 array = [1,2,2,2,3,5,5,5,5,5,5,5,5]
 k = 2
@@ -134,8 +126,6 @@ def top_freq(array,k):
             
     return final
             
-
-
 
 
 #Encoding and Decoding
@@ -187,5 +177,24 @@ def prefix_sum(nums):
         result[i] = product
     return result
 
+def prefix_prod(nums):
+
+    length = len(nums)
+    result = [1] * length
+    prefix = 1
+
+    for i in range(length):
+        result[i] = prefix
+        prefix = prefix * nums[i]
+
+    postfix = 1
+
+    for i in range(length-1,-1,-1):
+        result[i] = result[i] * postfix
+        postfix = postfix * nums[i]
+
+
+    return result
+
+print(prefix_prod(prefix_array))
 print(prefix_sum(prefix_array))
-    
