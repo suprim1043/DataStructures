@@ -156,7 +156,7 @@ def decode(s):
     return result
 
 
-prefix_array = [1,2,3,5,6]
+prefix_array = [1,2,3,5,5,6]
 #Sum except itself
 
 # This is a brute force approach with O(n^2) time complexity
@@ -209,6 +209,74 @@ def longest_common(nums):
             longest = max(counter, longest)
     return longest
 
-print(longest_common(prefix_array))
                 
+prices=[7,2,5,3,6,4]
 
+def buyandsell(prices):
+
+    maxprofit = 0
+    l, r = 0,1
+
+    while r < len(prices):
+        if prices[l] < prices[r]:
+            profit = prices[r] - prices[l]
+            maxprofit = max(maxprofit, profit)
+        else:
+            l = r
+        r += 1
+    return maxprofit
+
+
+#valid parenthesis
+
+strng = "([{}])"
+
+def valid(string):
+    result_stack = []
+    hashmap = {"}": "{", "]" : "[", ")":"("}
+
+    for s in string:
+        if s in hashmap:
+            if result_stack and result_stack[-1] == hashmap[s]:
+                result_stack.pop()
+            else:
+                return False
+
+        else:
+            result_stack.append(s)
+
+    return True if not result_stack else False
+
+
+
+nums = [-1, 0, 1, 2, -1, -4]
+
+def threesome(nums):
+    result = []
+    nums.sort()
+
+    for i,a in enumerate(nums):
+        if i > 0 and a == nums[i-1]:
+            continue
+        l,r = i+1,len(nums)-1
+
+
+        while l < r:
+            threesum = a + nums[l] + nums[r]
+            if threesum > 0:
+                r -= 1
+            elif threesum < 0:
+                l += 1
+            else:
+                result.append([a,nums[l],nums[r]])
+                l += 1
+
+                while nums[l] == nums[l-1] and l < r:
+                    l += 1
+              
+    return result
+
+
+
+print(threesome(nums))
+    
