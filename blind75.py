@@ -295,4 +295,23 @@ def maxArea(height):
     return result
 
 
-print(maxArea(height))
+prices = [10,1,5,6,7,1]
+#Output: 6
+
+def best_time(prices):
+
+    highest = 0
+    l, r = 0, 1
+
+    while r < len(prices):
+        if prices[l] < prices[r]:
+            profit = prices[r] - prices[l]
+            highest = max(highest, profit)
+
+        else:
+            l = r
+        r += 1
+    return highest
+
+
+print(best_time(prices))
