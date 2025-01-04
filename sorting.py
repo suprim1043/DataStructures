@@ -1,20 +1,14 @@
-# Python implementation of Insertion Sort
-def insertionSort(arr):
-	# Traverse through 1 to len(arr)
-    for i in range(1, len(arr)):
-        j = i - 1
-        while j >= 0 and arr[j + 1] < arr[j]:
-            # arr[j] and arr[j + 1] are out of order so swap them 
-            tmp = arr[j + 1]
-            arr[j + 1] = arr[j]
-            arr[j] = tmp
-            j -= 1
-    return arr
+def bubbleSort(array):
+    for i in range(len(array)):
+        for j in range(len(array)-i-1):
+            if array[j] > array[j+1]:
+                array[j], array[j+1] = array[j+1], array[j]
+    return array
 
-array = [4,5,3,2,154,53,52,44,2,1,2]
+array = [8,7,3,4,56,2]
 
+print(bubbleSort(array))
 
-print(insertionSort(array))
 
 
 
