@@ -1,44 +1,97 @@
-#Creation and Traversal for Linked List
+#Designing a singly linked list
+class Node():
+    def __init__(self, key, next_node = None):
+        self.key = key
+        self.next = next_node
 
+class LinkedList():
+    def __init__(self):
+        self.head = None
 
-#Creation
-class Node:
-    def __init__(self,k):
-        self.key = k
-        self.next = None
-
-head = Node(0)
-temp1 = Node(1)
-temp2 = Node(2)
-head.next = temp1
-head.next.next = temp2
-temp1.next = temp2
-
-#Traversal
-def printing(head):
-    current = head
-    while current !=None:
-        print(current.key, end= " -> ")
-        current = current.next
-    print("")
-
-#Searching in Linked List
-
-
-#returns position of item if found, if not returns -1
-def search(head, n):
-    current = head
-    pos = 0
-    while current != None:
-        if current.key == n:
-            return pos
-        elif current.next == None:
-            return -1
+    #adds node     
+    def addNode(self, data):
+        node = Node(data)
+        if not self.head:
+            self.head = node
         else:
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = node
+
+    #prints list        
+    def printList(self):
+        val = self.head
+        while val:
+            print(val.key, "->", end=" ")
+            val = val.next
+    
+    def findLength(self):
+        n = 0
+        val = self.head
+        while val:
+            n += 1
+            val = val.next
+        print("\n")
+
+    def searchFor(self, target):
+        val = self.head
+        n = 0
+        while val:
+            n += 1
+            if val.key == target:
+                return ("Value found at position",n)
+            val = val.next
+        return("Value not found")
+   
+    def addingattheBeginning(self, data):
+        
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+        return self.head
+
+
+    def addingAtSpecific(self, index, data):
+        new_node = Node(data)
+        
+        if index == 0:
+            new_node.next = self.head
+            self.head  = new_node
+            return self.head
+
+        n = 1
+        current = self.head
+        while current and n < index:
             current = current.next
-            pos += 1
+            n += 1
+        
+
+
+        new_node.next = current.next
+        current.next = new_node
+        return self.head
+
+     
 
 
 
+
+
+
+Linkedlst = LinkedList()
+Linkedlst.addNode(3)
+Linkedlst.addNode(4)
+Linkedlst.addNode(5)
+
+#Calling Methods
+Linkedlst.printList()
+Linkedlst.findLength()
+Linkedlst.addingattheBeginning(2)
+
+
+
+Linkedlst.addingAtSpecific(2,10)
+Linkedlst.printList()
 
 
