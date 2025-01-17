@@ -25,6 +25,7 @@ class LinkedList():
         while val:
             print(val.key, "->", end=" ")
             val = val.next
+        print("null")
     
     def findLength(self):
         n = 0
@@ -32,7 +33,6 @@ class LinkedList():
         while val:
             n += 1
             val = val.next
-        print("\n")
 
     def searchFor(self, target):
         val = self.head

@@ -56,3 +56,8 @@ def newbinsearch(array, target):
             return mid
     return - 1
 print(newbinsearch(array, 1))
+
+from collections import Counter
+
+n = Counter(array)
+print(n)
