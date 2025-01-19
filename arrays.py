@@ -79,4 +79,18 @@ def ret(words1, words2):
     return stack
 
         
-print(ret(words1,words2))
+#monotonic stack problem daily temperatures
+
+temperatures = [30,38,30,36,35,40,28]
+
+#[1,4,1,2,1,0,0]
+
+stack = []
+result = [0] * len(temperatures)
+
+for i, t in enumerate(temperatures):
+    while stack and t > stack[-1][0]:
+        stackT, stackI = stack.pop()
+        result[stackI] = (i - stackI)
+    stack.append([t, i])
+print(result)
